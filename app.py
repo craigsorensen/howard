@@ -13,7 +13,7 @@ SCRIPT_EXC_DIR = os.path.dirname(os.path.realpath(__file__))
 lock_file = "{0}/push.lock".format(SCRIPT_EXC_DIR)
 log_dir = f'{SCRIPT_EXC_DIR}/app.log'
 
-logging.basicConfig(filename=log_dir, filemode='w', format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s', level=logging.INFO)
+logging.basicConfig(filename=log_dir, format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s', level=logging.INFO)
 
 
 

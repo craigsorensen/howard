@@ -10,7 +10,7 @@ This script checks the Howard Stern website to see if there is a new show posted
 1. Create file called .pushover.txt in the root of your home dir. 
 2. Set permissions on .pushover.txt to 600
 3. Create new application on pushover.net and get the application token
-4. Add your user and application token to the .pushover.txt file as shown below. They should be on two separate lines with no whitespace.
+4. Add your user and application token to the .pushover.txt file as shown below. They should be on two separate lines with no whitespace.git 
 
 > token:add_app_token_here
 >
