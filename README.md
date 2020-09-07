@@ -13,6 +13,7 @@ This script checks the Howard Stern website to see if there is a new show posted
 4. Add your user and application token to the .pushover.txt file as shown below
 
 > token:add_app_token_here
+>
 > user:add_user_key_here
 
 5. The application will use these to authenticate to the pushover service.
