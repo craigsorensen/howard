@@ -18,7 +18,9 @@ logging.basicConfig(filename=log_dir, format='%(asctime)s %(levelname)-8s [%(fil
 
 
 date = datetime.now()
-f_date = date.strftime("%b %d, %Y")
+formatted_date = date.strftime("%b %d, %Y")
+f_date = datetime.strptime(formatted_date, "%b %d, %Y")
+
 # f_date = "Jul 20, 2020"
 
 # get the show elements from the page
@@ -33,7 +35,7 @@ if os.path.isfile(lock_file):
     if lock_date == date.strftime("%b %d, %Y"):
         print("Found lockfile. Has notification already been sent?")
         logging.info("Found lockfile. Has notification already been sent today?")
-        loggin.info(f"Lockfile Location: {lockfile}")
+        logging.info(f"Lockfile Location: {lock_file}")
         logging.info(f"Lockdate: {lock_date}")
         quit("quitting")
     else:
@@ -54,7 +56,8 @@ else:
 new_show = False
 # Check shows, alert if new 
 for show in shows:
-    if show.date == f_date:
+    compare_show_date = datetime.strptime(show.date, "%b %d, %Y")
+    if compare_show_date == f_date:
         print("Sending push notification...")
         logging.info("Sending push notification...")
         new_show = True
@@ -62,7 +65,7 @@ for show in shows:
         
         with open(lock_file, 'w+') as f:
             # print("writing lock file")
-            f.write(f_date)
+            f.write(formatted_date)
 
 if not new_show:
     print(f"No new show found for {f_date}")
