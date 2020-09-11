@@ -27,12 +27,10 @@ class ShowParser:
         topic_list = self.parent.select(locator)
         topics = []
         # topic HTML array (<A> tag)
-        #print(f"topic_list: {topic_list}")
+
         for t in topic_list:
             #print(f"topic_html: {t}")
             topics.append(TopicParser(str(t)))
-        # return topic_list
-        #topic_strings = [(self.parent.select_one('h3.entry-title').text).strip() for e in topic_list]
-        # print(topic_strings)
+
         return topics
     

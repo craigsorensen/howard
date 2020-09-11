@@ -1,7 +1,7 @@
 import re
 from bs4 import BeautifulSoup
 
-from locators.topic_locator import TopicPageLocator
+from locators.topic_locators import TopicPageLocator
 from parsers.topic import TopicParser
 
 class ShowPage:
