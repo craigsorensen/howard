@@ -1,4 +1,6 @@
 
+import logging
+
 from parsers.topic import TopicParser
 from locators.show_locators import ShowLocators
 from locators.topic_locators import TopicPageLocator
@@ -29,8 +31,7 @@ class ShowParser:
         # topic HTML array (<A> tag)
 
         for t in topic_list:
-            #print(f"topic_html: {t}")
             topics.append(TopicParser(str(t)))
-
+            logging.debug(f'Topic: {t}')
         return topics
     

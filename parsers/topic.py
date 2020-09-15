@@ -9,5 +9,5 @@ def TopicParser(topic):
     soup = BeautifulSoup(topic, 'html.parser')
 
     locator = TopicPageLocator.TOPIC_LOCATOR2
-    logging.debug(f"Topics: {(soup.select_one(locator).text).strip()}")
-    return (soup.select_one(locator).text).strip()
+    logging.debug(f"Topics html: {(soup.select_one(locator).attrs['alt'])}")
+    return (soup.select_one(locator).attrs['alt'])

@@ -58,13 +58,17 @@ new_show = False
 for show in shows:
     compare_show_date = datetime.strptime(show.date, "%b %d, %Y")
     if compare_show_date == f_date:
+        print(f"New Show Found! for {compare_show_date}")
+        logging.info(f'New Show Found! for {compare_show_date}')
         print("Sending push notification...")
         logging.info("Sending push notification...")
+        print(f'Topics: {show.topics}')
+        logging.info(f'Topics: {show.topics}')
         new_show = True
         push.send(TOKEN, USER, show.topics)
         
         with open(lock_file, 'w+') as f:
-            # print("writing lock file")
+            logging.debug("writing lock file")
             f.write(formatted_date)
 
 if not new_show:
