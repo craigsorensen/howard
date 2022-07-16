@@ -139,3 +139,18 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+Scripts/activate
+Scripts/activate.bat
+Scripts/Activate.ps1
+Scripts/deactivate.bat
+Scripts/easy_install-3.8.exe
+Scripts/easy_install.exe
+Scripts/pip.exe
+Scripts/pip3.8.exe
+Scripts/pip3.exe
+Scripts/python_d.exe
+Scripts/python.exe
+Scripts/pythonw_d.exe
+Scripts/pythonw.exe
+pyvenv.cfg
+push.lock
