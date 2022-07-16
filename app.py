@@ -6,7 +6,7 @@ from datetime import datetime
 from pages.show_pages import ShowPage
 from send_push import push
 
-SHOW_URL = "https://www.howardstern.com/show/"
+SHOW_URL = "https://www.vulcanatx.com/"
 CRED_DIR = os.path.expanduser("~")
 api_cred_file = "{0}/.howard_push_api.txt".format(CRED_DIR)
 SCRIPT_EXC_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -29,29 +29,29 @@ page = ShowPage(page_content)
 shows = page.shows
 
 # Check if lock exists and confirm validity
-if os.path.isfile(lock_file):
-    with open(lock_file, 'r') as f:
-	    lock_date = f.readline().strip()
-    if lock_date == date.strftime("%b %d, %Y"):
-        print("Found lockfile. Has notification already been sent?")
-        logging.info("Found lockfile. Has notification already been sent today?")
-        logging.info(f"Lockfile Location: {lock_file}")
-        logging.info(f"Lockdate: {lock_date}")
-        quit("quitting")
-    else:
-        print("Old lockfile found, removing!")
-        logging.info("Old lockfile found, removing!")
-        os.remove(lock_file)
+# if os.path.isfile(lock_file):
+#     with open(lock_file, 'r') as f:
+# 	    lock_date = f.readline().strip()
+#     if lock_date == date.strftime("%b %d, %Y"):
+#         print("Found lockfile. Has notification already been sent?")
+#         logging.info("Found lockfile. Has notification already been sent today?")
+#         logging.info(f"Lockfile Location: {lock_file}")
+#         logging.info(f"Lockdate: {lock_date}")
+#         quit("quitting")
+#     else:
+#         print("Old lockfile found, removing!")
+#         logging.info("Old lockfile found, removing!")
+#         os.remove(lock_file)
 
 # Get push API credentials from disk
-if os.path.isfile(api_cred_file):
-    with open(api_cred_file, 'r') as f:
-        creds = f.readlines()
-    TOKEN = creds[0].strip().split(':')[1]
-    USER = creds[1].strip().split(':')[1]
-else:
-    print(f"No API Credentials found in: {api_cred_file} - Check README file for setup instuctions")
-    logging.info(f"No API Credentials found in: {api_cred_file} - Check README file for setup instuctions")
+# if os.path.isfile(api_cred_file):
+    # with open(api_cred_file, 'r') as f:
+        # creds = f.readlines()
+    # TOKEN = creds[0].strip().split(':')[1]
+    # USER = creds[1].strip().split(':')[1]
+# else:
+    # print(f"No API Credentials found in: {api_cred_file} - Check README file for setup instuctions")
+    # logging.info(f"No API Credentials found in: {api_cred_file} - Check README file for setup instuctions")
 
 new_show = False
 # Check shows, alert if new 
