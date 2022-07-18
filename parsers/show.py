@@ -20,8 +20,14 @@ class ShowParser:
 
     @property
     def date(self):
-        locator = ShowLocators.DATE_LOCATOR
-        return (self.parent.select_one(locator).string).strip()
+        month_locator = ShowLocators.MONTH_LOCATOR
+        day_locator = ShowLocators.DAY_LOCATOR
+        date_locator = ShowLocators.DWEEK_LOCATOR
+
+        month = (self.parent.select_one(month_locator).string).strip()
+        date = (self.parent.select_one(date_locator).string).strip()
+        day = (self.parent.select_one(day_locator).string).strip()
+        return f'{date} {month} {day}'
 
     @property
     def topics(self):

@@ -1,2 +1,4 @@
+# This locates the show elements on the webpage
+
 class ShowPageLocator:
-    SHOW_LOCATOR = 'div.show-results article'
+    SHOW_LOCATOR = 'div.w-dyn-items div'
