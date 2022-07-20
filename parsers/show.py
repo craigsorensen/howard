@@ -14,30 +14,25 @@ class ShowParser:
 
     def __init__(self, parent):
         self.parent = parent
+        #print each show
+        #print(self.parent)
 
     def __repr__(self):
-        return f'<Show {self.date}, Topics: {self.topics}>'   
+        return f'<Show {self.date}, Topic: {self.topic}>'   
 
     @property
     def date(self):
         month_locator = ShowLocators.MONTH_LOCATOR
         day_locator = ShowLocators.DAY_LOCATOR
-        date_locator = ShowLocators.DWEEK_LOCATOR
-
+        dweek_locator = ShowLocators.DWEEK_LOCATOR
         month = (self.parent.select_one(month_locator).string).strip()
-        date = (self.parent.select_one(date_locator).string).strip()
+        dweek = (self.parent.select_one(dweek_locator).string).strip()
         day = (self.parent.select_one(day_locator).string).strip()
-        return f'{date} {month} {day}'
+        #print(f'{dweek} {month} {day}')
+        return [dweek, month, day]
 
     @property
-    def topics(self):
+    def topic(self):
         locator = TopicPageLocator.TOPIC_LOCATOR
-        topic_list = self.parent.select(locator)
-        topics = []
-        # topic HTML array (<A> tag)
-
-        for t in topic_list:
-            topics.append(TopicParser(str(t)))
-            logging.debug(f'Topic: {t}')
-        return topics
+        return (self.parent.select_one(locator).string).strip()
     
