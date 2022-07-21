@@ -21,14 +21,12 @@ date = datetime.now()
 formatted_date = date.strftime("%b %d, %Y")
 f_date = datetime.strptime(formatted_date, "%b %d, %Y")
 
-# Get page content
+# f_date = "Jul 20, 2020"
+
+# get the show elements from the page
 page_content = requests.get(SHOW_URL).content
-
-# Get the show elements from the page
 page = ShowPage(page_content)
-
 shows = page.shows
-print(shows)
 
 # Check if lock exists and confirm validity
 # if os.path.isfile(lock_file):
